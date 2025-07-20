@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/profile', [AuthController::class, 'updateProfile']);
         Route::post('/change-password', [AuthController::class, 'changePassword']);
         Route::post('/refresh-token', [AuthController::class, 'refreshToken']);
+
     });
 
     // 👤 Messages (Protected)
@@ -40,6 +41,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/{id}/read', [MessageController::class, 'markAsRead']); // Mark as read
         Route::delete('/{id}', [MessageController::class, 'destroy']); // Delete
     });
+        Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index']);
+
 });
 
 // 🧱 Fallback
